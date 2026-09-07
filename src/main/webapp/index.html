@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Darshan Allurkar | Portfolio</title>
+
+<style>
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #030712;
+    color: #f8fafc;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(59,130,246,.13), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(139,92,246,.12), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(14,165,233,.08), transparent 30%);
+    pointer-events: none;
+    z-index: -3;
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, 92%);
+    padding: 13px 20px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50px;
+    background: rgba(3,7,18,.72);
+    backdrop-filter: blur(18px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #60a5fa;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #94a3b8;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.menu {
+    display: none;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 8% 80px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid rgba(96,165,250,.25);
+    border-radius: 50px;
+    background: rgba(59,130,246,.08);
+    color: #93c5fd;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #22c55e;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 95px);
+    line-height: .92;
+    letter-spacing: -6px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#60a5fa,#a78bfa,#22d3ee);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #94a3b8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.1);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: white;
+    color: #020617;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,.15);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,.04);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.09);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.orbit-container {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    margin: auto;
+}
+
+.orbit {
+    position: absolute;
+    inset: 25px;
+    border: 1px solid rgba(96,165,250,.18);
+    border-radius: 50%;
+    animation: rotate 15s linear infinite;
+}
+
+.orbit.two {
+    inset: 55px;
+    animation-duration: 10s;
+    animation-direction: reverse;
+}
+
+.orbit::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 25px #60a5fa;
+}
+
+.planet {
+    position: absolute;
+    inset: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%,#60a5fa,#4f46e5 45%,#111827 75%);
+    box-shadow:
+        0 0 40px rgba(59,130,246,.5),
+        inset -20px -20px 40px rgba(0,0,0,.5);
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+    padding: 110px 8%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.section-label {
+    color: #60a5fa;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(35px,5vw,60px);
+    letter-spacing: -3px;
+    margin-bottom: 45px;
+}
+
+.section-title span {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.glass {
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.025);
+    border-radius: 20px;
+    padding: 30px;
+    transition: .3s;
+}
+
+.glass:hover {
+    transform: translateY(-5px);
+    border-color: rgba(96,165,250,.3);
+}
+
+.about-text {
+    color: #94a3b8;
+    line-height: 1.9;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.stat {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 35px;
+    color: white;
+}
+
+.stat span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+    position: relative;
+    max-width: 850px;
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(#60a5fa,transparent);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 45px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 20px #60a5fa;
+}
+
+.timeline-year {
+    color: #60a5fa;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.timeline h3 {
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.timeline p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.025);
+    color: #cbd5e1;
+    transition: .3s;
+}
+
+.skill:hover {
+    transform: translateY(-4px);
+    border-color: #60a5fa;
+    color: white;
+    box-shadow: 0 10px 30px rgba(59,130,246,.12);
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.project-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter {
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.filter.active,
+.filter:hover {
+    background: white;
+    color: black;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.project {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.project-image {
+    height: 190px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    background:
+        radial-gradient(circle at 20% 30%,#2563eb,transparent 30%),
+        radial-gradient(circle at 80% 70%,#7c3aed,transparent 35%),
+        #0f172a;
+}
+
+.project h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.project p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 15px;
+}
+
+.tag {
+    font-size: 10px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: rgba(96,165,250,.1);
+    color: #93c5fd;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 30px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 14px;
+    background: rgba(255,255,255,.02);
+}
+
+.contact-item small {
+    display: block;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.contact-item a {
+    color: #cbd5e1;
+}
+
+form {
+    display: grid;
+    gap: 14px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.025);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #60a5fa;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 40px 8%;
+    border-top: 1px solid rgba(255,255,255,.06);
+    text-align: center;
+    color: #475569;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CHAT ASSISTANT
+========================================================= */
+
+.chat-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: black;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+.chat {
+    position: fixed;
+    right: 25px;
+    bottom: 90px;
+    width: 330px;
+    background: #0b1120;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
+    overflow: hidden;
+    z-index: 998;
+    display: none;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.chat.open {
+    display: block;
+    animation: popup .25s ease;
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-head {
+    padding: 17px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.chat-head strong {
+    display: block;
+}
+
+.chat-head small {
+    color: #64748b;
+}
+
+.chat-body {
+    height: 260px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    background: rgba(255,255,255,.05);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.message.user {
+    background: #2563eb;
+    color: white;
+    margin-left: 30px;
+}
+
+.chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.chat-form input {
+    border: none;
+    background: transparent;
+}
+
+.chat-form button {
+    border: none;
+    background: transparent;
+    color: #60a5fa;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    max-width: 600px;
+    width: 100%;
+    padding: 35px;
+    border-radius: 20px;
+    background: #0b1120;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+    color: #94a3b8;
+}
+
+.modal-box h2 {
+    margin-bottom: 15px;
+}
+
+.modal-box p {
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px) {
+
+    .hero-content,
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .orbit-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero {
+        padding-top: 150px;
+    }
+}
+
+@media(max-width:650px) {
+
+    nav {
+        border-radius: 15px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        background: #0b1120;
+        border-radius: 15px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+
+    .chat {
+        right: 12px;
+        width: calc(100% - 24px);
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<canvas id="stars"></canvas>
+
+
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
+
+<nav>
+
+    <a href="#home" class="logo">
+        Darshan<span>.dev</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="menu" id="menuBtn">☰</button>
+
+</nav>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div>
+
+            <div class="badge">
+                <span class="status-dot"></span>
+                OPEN TO OPPORTUNITIES
+            </div>
+
+            <h1>
+                Hi, I'm<br>
+                <span>Darshan.</span>
+            </h1>
+
+            <p>
+                B.Tech Computer Science student passionate about
+                backend development, Java, Python, web technologies,
+                DevOps and building useful software.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work →
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+                <button class="btn btn-secondary" onclick="downloadCV()">
+                    Download CV
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="orbit-container">
+
+            <div class="orbit"></div>
+            <div class="orbit two"></div>
+            <div class="planet"></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+
+<section id="about">
+
+    <div class="section-label">01 — About</div>
+
+    <h2 class="section-title">
+        A developer who<br>
+        <span>likes building things.</span>
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="glass">
+
+            <p class="about-text">
+
+                I'm Darshan Allurkar, a Computer Science student
+                interested in software development and backend
+                engineering.
+
+                <br><br>
+
+                My current focus is strengthening Java, Python,
+                databases, web development and DevOps while
+                continuously building practical projects.
+
+                <br><br>
+
+                I don't want to just collect technologies.
+                I want to understand how systems actually work.
+
+            </p>
+
+        </div>
+
+
+        <div class="glass stats">
+
+            <div class="stat">
+                <strong>2026</strong>
+                <span>Graduation</span>
+            </div>
+
+            <div class="stat">
+                <strong>10+</strong>
+                <span>Projects</span>
+            </div>
+
+            <div class="stat">
+                <strong>2+</strong>
+                <span>Internships</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     JOURNEY
+====================================================== -->
+
+<section id="journey">
+
+    <div class="section-label">02 — Journey</div>
+
+    <h2 class="section-title">
+        My <span>journey.</span>
+    </h2>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2022</div>
+
+            <h3>Started Computer Science</h3>
+
+            <p>
+                Began my B.Tech journey in Computer Science and
+                Engineering, building foundations in programming,
+                data structures and software development.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2024</div>
+
+            <h3>Started Building Projects</h3>
+
+            <p>
+                Started turning concepts into practical projects
+                involving web development, databases and
+                application development.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2025</div>
+
+            <h3>Internships & Hackathons</h3>
+
+            <p>
+                Gained practical exposure through internships,
+                team projects and hackathons while improving
+                problem-solving and development skills.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2026</div>
+
+            <h3>Preparing for Industry</h3>
+
+            <p>
+                Focusing on Java full-stack development,
+                backend engineering, DevOps and interview
+                preparation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SKILLS
+====================================================== -->
+
+<section id="skills">
+
+    <div class="section-label">03 — Skills</div>
+
+    <h2 class="section-title">
+        My <span>toolbox.</span>
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">Java</div>
+        <div class="skill">Python</div>
+        <div class="skill">C</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Spring Boot</div>
+        <div class="skill">JDBC</div>
+        <div class="skill">JSP</div>
+        <div class="skill">Servlets</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">MongoDB</div>
+        <div class="skill">Git</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Jenkins</div>
+        <div class="skill">Linux</div>
+        <div class="skill">Shell Scripting</div>
+        <div class="skill">REST APIs</div>
+        <div class="skill">DevOps</div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PROJECTS
+====================================================== -->
+
+<section id="projects">
+
+    <div class="section-label">04 — Projects</div>
+
+    <h2 class="section-title">
+        Things I've <span>built.</span>
+    </h2>
+
+
+    <div class="project-filter">
+
+        <button class="filter active" data-filter="all">
+            All
+        </button>
+
+        <button class="filter" data-filter="java">
+            Java
+        </button>
+
+        <button class="filter" data-filter="web">
+            Web
+        </button>
+
+        <button class="filter" data-filter="python">
+            Python
+        </button>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <article class="project glass" data-category="web"
+                 onclick="openProject(
+                 'Entertainment Hub',
+                 'Interactive entertainment platform for discovering movies and events with a modern user interface.'
+                 )">
+
+            <div class="project-image">🎬</div>
+
+            <h3>Entertainment Hub</h3>
+
+            <p>
+                Interactive entertainment platform for browsing
+                and discovering movies and events.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+        </article>
+
+
+        <article class="project glass" data-category="java"
+                 onclick="openProject(
+                 'Admin Management System',
+                 'Java web application implementing CRUD operations using JSP, Servlets, JDBC and MySQL.'
+                 )">
+
+            <div class="project-image">☕</div>
+
+            <h3>Admin Management System</h3>
+
+            <p>
+                Java web application with CRUD operations,
+                JSP, Servlets, JDBC and MySQL.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">JSP</span>
+                <span class="tag">Servlet</span>
+                <span class="tag">MySQL</span>
+            </div>
+
+        </article>
+
+
+        <article class="project glass" data-category="web"
+                 onclick="openProject(
+                 'NoteVault',
+                 'A secure browser-based note application using local storage for persistent client-side data.'
+                 )">
+
+            <div class="project-image">📝</div>
+
+            <h3>NoteVault</h3>
+
+            <p>
+                Browser-based note application with persistent
+                client-side storage.
+            </p>
+
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">LocalStorage</span>
+            </div>
+
+        </article>
+
+
+        <article class="project glass" data-category="python"
+                 onclick="openProject(
+                 'Python Analytics',
+                 'Python-based data analysis project focused on processing datasets and extracting useful insights.'
+                 )">
+
+            <div class="project-image">🐍</div>
+
+            <h3>Python Analytics</h3>
+
+            <p>
+                Data processing and analysis using Python
+                and common data science techniques.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Data</span>
+            </div>
+
+        </article>
+
+
+        <article class="project glass" data-category="java"
+                 onclick="openProject(
+                 'Java CRUD Application',
+                 'Full CRUD workflow demonstrating database connectivity and server-side Java development.'
+                 )">
+
+            <div class="project-image">🗄️</div>
+
+            <h3>Java CRUD Application</h3>
+
+            <p>
+                Database-driven Java application demonstrating
+                complete CRUD functionality.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">JDBC</span>
+                <span class="tag">MySQL</span>
+            </div>
+
+        </article>
+
+
+        <article class="project glass" data-category="web"
+                 onclick="openProject(
+                 'Portfolio Website',
+                 'Responsive portfolio built from scratch using pure HTML, CSS and JavaScript.'
+                 )">
+
+            <div class="project-image">🌌</div>
+
+            <h3>Portfolio Website</h3>
+
+            <p>
+                Responsive personal portfolio with animations,
+                filtering and an interactive assistant.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section id="contact">
+
+    <div class="section-label">05 — Contact</div>
+
+    <h2 class="section-title">
+        Let's build<br>
+        <span>something useful.</span>
+    </h2>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <small>Email</small>
+
+                <a href="mailto:darshanallurkar615@gmail.com">
+                    darshanallurkar615@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>Phone</small>
+
+                <a href="tel:+919353158384">
+                    +91 9353157384
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>Location</small>
+
+                <span>India</span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>GitHub</small>
+
+                <a href="#" target="_blank">
+                    github.com/darshan
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>LinkedIn</small>
+
+                <a href="#" target="_blank">
+                    linkedin.com/in/darshan
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="glass">
+
+            <form id="contactForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Tell me about your idea..."
+                    required
+                ></textarea>
+
+                <button class="btn btn-primary" type="submit">
+                    Send Message →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    © <span id="year"></span> Darshan Allurkar.
+    Built with HTML, CSS & JavaScript.
+
+</footer>
+
+
+<!-- ======================================================
+     CHAT
+====================================================== -->
+
+<button class="chat-button" id="chatButton">
+    ✦
+</button>
+
+
+<div class="chat" id="chat">
+
+    <div class="chat-head">
+
+        <strong>Space Assistant</strong>
+
+        <small>
+            Ask me about Darshan
+        </small>
+
+    </div>
+
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="message">
+            Hey! I'm Darshan's portfolio assistant 🚀
+            Ask me about his skills, projects or contact details.
+        </div>
+
+    </div>
+
+
+    <form class="chat-form" id="chatForm">
+
+        <input
+            id="chatInput"
+            placeholder="Ask something..."
+            autocomplete="off"
+        >
+
+        <button>➤</button>
+
+    </form>
+
+</div>
+
+
+<!-- ======================================================
+     PROJECT MODAL
+====================================================== -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-box">
+
+        <span class="close" onclick="closeProject()">
+            ×
+        </span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   STAR FIELD
+========================================================= */
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+
+function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+
+for(let i = 0; i < 180; i++) {
+
+    stars.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        size: Math.random() * 1.7,
+        speed: Math.random() * .35 + .05
+    });
+
+}
+
+
+function animateStars() {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    stars.forEach(star => {
+
+        star.y += star.speed;
+
+        if(star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = "rgba(255,255,255,.7)";
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(animateStars);
+
+}
+
+animateStars();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
+
+const filters = document.querySelectorAll(".filter");
+const projects = document.querySelectorAll(".project");
+
+filters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        filters.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        filter.classList.add("active");
+
+        const category = filter.dataset.filter;
+
+        projects.forEach(project => {
+
+            if(
+                category === "all" ||
+                project.dataset.category === category
+            ) {
+
+                project.style.display = "block";
+
+            } else {
+
+                project.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   PROJECT MODAL
+========================================================= */
+
+function openProject(title, description) {
+
+    document.getElementById("modalTitle").textContent = title;
+
+    document.getElementById("modalDescription").textContent =
+        description;
+
+    document.getElementById("projectModal")
+        .classList.add("show");
+
+}
+
+
+function closeProject() {
+
+    document.getElementById("projectModal")
+        .classList.remove("show");
+
+}
+
+
+document.getElementById("projectModal")
+.addEventListener("click", function(e) {
+
+    if(e.target === this) {
+        closeProject();
+    }
+
+});
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const subject =
+        document.getElementById("subject").value;
+
+    const message =
+        document.getElementById("message").value;
+
+
+    const mailBody =
+        `Name: ${name}%0A` +
+        `Email: ${email}%0A%0A` +
+        `${message}`;
+
+
+    window.location.href =
+        `mailto:darshanallurkar615@gmail.com` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${mailBody}`;
+
+});
+
+
+/* =========================================================
+   CHAT ASSISTANT
+========================================================= */
+
+const chatButton =
+    document.getElementById("chatButton");
+
+const chat =
+    document.getElementById("chat");
+
+const chatForm =
+    document.getElementById("chatForm");
+
+const chatInput =
+    document.getElementById("chatInput");
+
+const chatBody =
+    document.getElementById("chatBody");
+
+
+chatButton.addEventListener("click", () => {
+
+    chat.classList.toggle("open");
+
+});
+
+
+chatForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const question =
+        chatInput.value.trim();
+
+    if(!question) return;
+
+
+    addMessage(question, "user");
+
+    chatInput.value = "";
+
+
+    setTimeout(() => {
+
+        let answer =
+            "I'm not sure about that. Try asking about Darshan's skills, projects, Java, or contact information.";
+
+        const q = question.toLowerCase();
+
+
+        if(
+            q.includes("skill") ||
+            q.includes("technology") ||
+            q.includes("tech")
+        ) {
+
+            answer =
+                "Darshan works with Java, Python, HTML, CSS, JavaScript, Spring Boot, MySQL, MongoDB, Git, Jenkins and DevOps.";
+
+        }
+
+
+        else if(
+            q.includes("project") ||
+            q.includes("work")
+        ) {
+
+            answer =
+                "Check the Projects section. Some highlighted work includes Java CRUD applications, Entertainment Hub, NoteVault and Python projects.";
+
+        }
+
+
+        else if(
+            q.includes("java")
+        ) {
+
+            answer =
+                "Java is one of Darshan's main focus areas, including JDBC, JSP, Servlets, CRUD applications and Spring Boot.";
+
+        }
+
+
+        else if(
+            q.includes("contact") ||
+            q.includes("email")
+        ) {
+
+            answer =
+                "You can contact Darshan at darshanallurkar615@gmail.com.";
+
+        }
+
+
+        else if(
+            q.includes("hello") ||
+            q.includes("hi")
+        ) {
+
+            answer =
+                "Hey! 👋 Welcome to Darshan's portfolio. Ask me about his skills, projects or experience.";
+
+        }
+
+
+        addMessage(answer, "bot");
+
+    }, 500);
+
+});
+
+
+function addMessage(text, type) {
+
+    const div =
+        document.createElement("div");
+
+    div.className =
+        "message " +
+        (type === "user" ? "user" : "");
+
+    div.textContent = text;
+
+    chatBody.appendChild(div);
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+
+}
+
+
+/* =========================================================
+   CV
+========================================================= */
+
+function downloadCV() {
+
+    alert(
+        "Replace this function with your actual CV file path, e.g. 'Darshan_Allurkar_Resume.pdf'."
+    );
+
+}
+
+
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.getElementById("year")
+.textContent = new Date().getFullYear();
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".glass, .timeline-item, .skill"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting) {
+
+                    entry.target.animate(
+                        [
+                            {
+                                opacity: 0,
+                                transform: "translateY(25px)"
+                            },
+                            {
+                                opacity: 1,
+                                transform: "translateY(0)"
+                            }
+                        ],
+                        {
+                            duration: 600,
+                            easing: "ease-out",
+                            fill: "forwards"
+                        }
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(el =>
+    observer.observe(el)
+);
+
+
+/* =========================================================
+   MOUSE PARALLAX ON HERO PLANET
+========================================================= */
+
+const planet =
+    document.querySelector(".planet");
+
+document.addEventListener("mousemove", e => {
+
+    const x =
+        (window.innerWidth / 2 - e.clientX) / 35;
+
+    const y =
+        (window.innerHeight / 2 - e.clientY) / 35;
+
+    planet.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+</script>
+
+</body>
+</html>
